@@ -1,9 +1,9 @@
 title: ISC Demos
 description: Catalogue des démonstrations de l'Institut Informatique et systèmes de communication.
 lang: fr
-url: https://isc-hei.github.io
-baseurl: /ISC-Demos
-repository: ISC-HEI/ISC-Demos
+url: https://sebastian0211-vs.github.io
+baseurl: /TESTISCDEMOS
+repository: Sebastian0211-vs/TESTISCDEMOS
 
 markdown: kramdown
 permalink: pretty

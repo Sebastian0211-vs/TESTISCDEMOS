@@ -34,7 +34,8 @@ Le workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) :
 Avant le premier déploiement, sélectionner **GitHub Actions** dans
 **Settings → Pages → Build and deployment → Source**.
 
-L’URL attendue est <https://isc-hei.github.io/ISC-Demos/>.
+L’URL attendue pour le dépôt de test est
+<https://sebastian0211-vs.github.io/TESTISCDEMOS/>.
 
 ## Aperçu local sous Windows
 
