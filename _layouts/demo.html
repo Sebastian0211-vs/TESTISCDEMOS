@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+<article class="demo-page">
+  <div class="shell">
+    <nav class="breadcrumb" aria-label="Fil d’Ariane">
+      <a href="{{ '/' | relative_url }}">Catalogue</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{{ page.title }}</span>
+    </nav>
+
+    <header class="demo-header">
+      <div>
+        <div class="label-row">
+          <span class="status status-{{ page.statut | slugify }}">{{ page.statut }}</span>
+          {% for tag in page.tags %}<span class="tag">{{ tag }}</span>{% endfor %}
+        </div>
+        <h1>{{ page.title }}</h1>
+        <p class="lead">{{ page.resume }}</p>
+        <div class="actions">
+          {% if page.site %}<a class="button primary" href="{{ page.site }}">Ouvrir la démo ↗</a>{% endif %}
+          <a class="button" href="{{ page.depot }}">Voir le code ↗</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="demo-overview">
+      <div class="demo-media">
+        {% if page.cover %}
+          <img src="{{ page.cover | relative_url }}" alt="{{ page.cover_alt | default: page.title | escape }}">
+        {% else %}
+          <div class="media-placeholder"><span>Visuel à ajouter</span></div>
+        {% endif %}
+        {% if page.video %}<a class="video-link" href="{{ page.video }}">Voir la vidéo ↗</a>{% endif %}
+      </div>
+
+      <section class="practical" aria-labelledby="infos-pratiques">
+        <p class="eyebrow">En bref</p>
+        <h2 id="infos-pratiques">Informations pratiques</h2>
+        <dl>
+          <div><dt>Durée</dt><dd>{{ page.duree }}</dd></div>
+          <div><dt>Présentation</dt><dd>{{ page.mode }}</dd></div>
+          <div><dt>Supervision</dt><dd>{{ page.supervision }}</dd></div>
+          <div><dt>Niveau requis</dt><dd>{{ page.niveau_superviseur }}</dd></div>
+          <div><dt>Public</dt><dd>{{ page.audience | join: ', ' }}</dd></div>
+          <div>
+            <dt>Matériel</dt>
+            <dd><ul>{% for item in page.materiel %}<li>{{ item }}</li>{% endfor %}</ul></dd>
+          </div>
+          <div><dt>Responsable</dt><dd>{% if page.contact %}<a href="{{ page.contact }}">{{ page.responsable }}</a>{% else %}{{ page.responsable }}{% endif %}</dd></div>
+          <div><dt>Dernier test</dt><dd>{{ page.dernier_test }}</dd></div>
+        </dl>
+      </section>
+    </div>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <section class="technical" aria-labelledby="documentation-technique">
+      <div>
+        <p class="eyebrow">Pour l’équipe technique</p>
+        <h2 id="documentation-technique">Documentation technique</h2>
+        <p>Installation, mises à jour et développement sont documentés avec le code du projet.</p>
+      </div>
+      <a class="button" href="{{ page.documentation_technique | default: page.depot }}">Consulter la documentation ↗</a>
+    </section>
+  </div>
+</article>
+

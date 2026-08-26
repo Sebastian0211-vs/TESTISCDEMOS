@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'fr' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#383838">
+    <meta name="description" content="{{ page.resume | default: page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}">
+    <meta property="og:description" content="{{ page.resume | default: page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta property="og:type" content="website">
+    {% if page.cover %}<meta property="og:image" content="{{ page.cover | absolute_url }}">{% endif %}
+    <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
+    <link rel="icon" href="{{ '/assets/logo/isc-symbol.svg' | relative_url }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+    <script src="{{ '/assets/js/catalogue.js' | relative_url }}" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <div class="ridge" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="shell topbar-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="ISC Demos — accueil">
+          <img src="{{ '/assets/logo/isc-inline-black.svg' | relative_url }}" alt="ISC">
+          <span>ISC Demos</span>
+        </a>
+        <nav class="nav" aria-label="Navigation principale">
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>Catalogue</a>
+          <a href="{{ '/contribuer/' | relative_url }}"{% if page.url == '/contribuer/' %} aria-current="page"{% endif %}>Ajouter une démo</a>
+          <a href="https://github.com/{{ site.repository }}">GitHub ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenu">
+      {{ content }}
+    </main>
+
+    <footer class="footer">
+      <div class="shell footer-inner">
+        <span>ISC Demos · HES-SO Valais-Wallis</span>
+        <span>Logos <a href="https://github.com/ISC-HEI/isc-logos">ISC-HEI/isc-logos</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a></span>
+      </div>
+    </footer>
+  </body>
+</html>

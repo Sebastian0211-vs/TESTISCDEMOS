@@ -1,0 +1,8 @@
+.DS_Store
+
+# projet WebStorm
+.idea/
+/graphify-out/
+/_site/
+/.jekyll-cache/
+/.jekyll-metadata
